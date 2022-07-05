@@ -7,33 +7,36 @@
         <VerticalStackLayout 
             Spacing="25" 
             Padding="30,0" 
-            VerticalOptions="Center">
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-                
             <Label 
-                Text="Hello, World!"
+                Text="Select a method of transport"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-            
-            <Label 
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                FontSize="32" />
 
             <Button 
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                x:Name="SaveBikeTrip"
+                Text="Bike"
+                SemanticProperties.Hint="Saves a bike entry" />
+            
+            <Button 
+                x:Name="SaveBusTrip"
+                Text="Bus"
+                SemanticProperties.Hint="Saves a bus entry" />
+
+            <Button 
+                x:Name="SaveTrainTrip"
+                Text="Train"
+                SemanticProperties.Hint="Saves a train entry" />
+
+            <Button 
+                x:Name="SaveCarTrip"
+                Text="Car"
+                SemanticProperties.Hint="Saves a car entry" />
+            
+            <Label
+                x:Name="TripCounter" />
 
         </VerticalStackLayout>
     </ScrollView>

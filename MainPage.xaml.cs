@@ -2,23 +2,35 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	private int tripCounter = 0;
+    private string database = Path.Combine(FileSystem.AppDataDirectory, "tripLog.json");
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        SaveBikeTrip.Clicked += UpdateTripCounter;
+        SaveBusTrip.Clicked += UpdateTripCounter;
+        SaveTrainTrip.Clicked += UpdateTripCounter;
+        SaveCarTrip.Clicked += UpdateTripCounter;
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+        if (File.Exists(database))
+        {
+            tripCounter = int.Parse(File.ReadAllText(database));
+            RefreshTripCounterText();
+        }
+    }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+    private void UpdateTripCounter(object sender, EventArgs e)
+    {
+        tripCounter++;
+        RefreshTripCounterText();
+        File.WriteAllText(database, tripCounter.ToString());
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    private void RefreshTripCounterText()
+    {
+        TripCounter.Text = $"Trips saved: {tripCounter}";
+        SemanticScreenReader.Announce(TripCounter.Text);
+    }
 }
 
