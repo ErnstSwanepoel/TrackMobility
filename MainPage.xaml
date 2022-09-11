@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sharedResources="clr-namespace:TrackMobility.Resources.Shared"
              x:Class="TrackMobility.MainPage">
-			 
+
     <ScrollView>
         <VerticalStackLayout 
             Spacing="25" 
@@ -13,32 +14,36 @@
             <Label 
                 Text="Select a method of transport"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32" />
+                FontSize="32">
+            </Label>
 
             <Button 
                 x:Name="SaveBikeTrip"
-                Text="Bike"
-                SemanticProperties.Hint="Saves a bike entry" />
-            
+                Text="{x:Static Member=sharedResources:SharedButton.TextForBike}"
+                SemanticProperties.Hint="Saves a bike entry"
+                TextColor="{x:Static Member=sharedResources:SharedButton.FontColor}"/>
+
             <Button 
                 x:Name="SaveBusTrip"
-                Text="Bus"
-                SemanticProperties.Hint="Saves a bus entry" />
+                Text="{x:Static Member=sharedResources:SharedButton.TextForBus}"
+                SemanticProperties.Hint="Saves a bus entry"
+                TextColor="{x:Static Member=sharedResources:SharedButton.FontColor}"/>
 
             <Button 
                 x:Name="SaveTrainTrip"
-                Text="Train"
-                SemanticProperties.Hint="Saves a train entry" />
+                Text="{x:Static Member=sharedResources:SharedButton.TextForTrain}"
+                SemanticProperties.Hint="Saves a train entry"
+                TextColor="{x:Static Member=sharedResources:SharedButton.FontColor}"/>
 
             <Button 
                 x:Name="SaveCarTrip"
-                Text="Car"
-                SemanticProperties.Hint="Saves a car entry" />
-            
+                Text="{x:Static Member=sharedResources:SharedButton.TextForCar}"
+                SemanticProperties.Hint="Saves a car entry"
+                TextColor="{x:Static Member=sharedResources:SharedButton.FontColor}"/>
+
             <Label
                 x:Name="TripCounter" />
 
         </VerticalStackLayout>
     </ScrollView>
- 
 </ContentPage>
